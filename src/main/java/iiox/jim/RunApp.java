@@ -8,15 +8,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class App {
+public class RunApp {
 	private static String URL = "http://textfiles.com/100/captmidn.txt";
 
 	public static void main(String[] args) {
-		new App().run();
+		new RunApp().run();
 	}
 
 	public void run() {
@@ -69,7 +70,7 @@ public class App {
 
 	//@VisibleForTesting
 	public ArrayList<Map.Entry<String, Integer>> sortWords(HashMap<String, Integer> wordMap) {
-		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<>(wordMap.entrySet());
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Entry<String, Integer>>(wordMap.entrySet());
 		Collections.sort(entries, new Comparator<Map.Entry<String, Integer>>() {
 			@Override
 			public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {

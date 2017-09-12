@@ -7,6 +7,7 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,13 +20,13 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 public class AppTest {
-	App app;
+	RunApp app;
 	ArrayList<Map.Entry<String, Integer>> entriesTest;
 	ArrayList<Map.Entry<String, Integer>> entriesTest2;
 
 	@Before
 	public void init() {
-		app = new App();
+		app = new RunApp();
 		createTestList();
 		createTestList2();
 	}
@@ -67,13 +68,13 @@ public class AppTest {
 	
 	@Test
 	public void print_test_list() throws Exception {
-		App appTest = Mockito.spy(App.class);
+		RunApp appTest = Mockito.spy(RunApp.class);
 		appTest.printTopTen(entriesTest2);
 		Mockito.verify(appTest).printTopTen(entriesTest2);
 	}
 	
 	private void createTestList() {
-		entriesTest = new ArrayList<>();
+		entriesTest = new ArrayList<Entry<String, Integer>>();
 		Map.Entry<String,Integer> entry1 = new AbstractMap.SimpleEntry<String, Integer>("apple", 3);
 		Map.Entry<String,Integer> entry2 = new AbstractMap.SimpleEntry<String, Integer>("orange", 2);
 		Map.Entry<String,Integer> entry3 = new AbstractMap.SimpleEntry<String, Integer>("banana", 1);
@@ -83,7 +84,7 @@ public class AppTest {
 	}
 	
 	private void createTestList2() {
-		entriesTest2 = new ArrayList<>();
+		entriesTest2 = new ArrayList<Entry<String, Integer>>();
 		Map.Entry<String,Integer> entry1 = new AbstractMap.SimpleEntry<String, Integer>("apple", 3);
 		Map.Entry<String,Integer> entry2 = new AbstractMap.SimpleEntry<String, Integer>("orange", 2);
 		Map.Entry<String,Integer> entry3 = new AbstractMap.SimpleEntry<String, Integer>("banana", 1);
